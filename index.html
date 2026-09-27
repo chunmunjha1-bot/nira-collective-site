@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The NiRa Collective — A Holding Company</title>
+<meta name="description" content="The NiRa Collective is an umbrella holding company for ventures in publishing, marketing, and e-commerce.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F2B4C'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Georgia,serif' font-size='36' fill='white'%3EN%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="The NiRa Collective">
+<meta property="og:description" content="An umbrella holding company for ventures in publishing, marketing, and e-commerce.">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --navy:#0F2B4C;
+    --slate:#6B7A8F;
+    --white:#FFFFFF;
+    --paper:#F4F6F8;
+    --line: rgba(15,43,76,0.12);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth; scroll-padding-top:env(safe-area-inset-top,0px);}
+  body{
+    margin:0;
+    background:var(--white);
+    color:var(--navy);
+    font-family:Helvetica, Arial, sans-serif;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:Georgia,'Times New Roman',serif; font-weight:normal; letter-spacing:-0.01em;}
+  a{color:inherit;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 40px;}
+  @media(max-width:640px){.wrap{padding:0 22px;}}
+
+  header{position:sticky; top:0; top:env(safe-area-inset-top,0px); background:rgba(255,255,255,0.9); backdrop-filter:blur(8px); z-index:10;}
+  .nav-row{display:flex; align-items:center; justify-content:space-between; padding:22px 0;}
+  .nav-mark{display:flex; align-items:center; gap:14px;}
+  .nav-mark .mark{height:42px; width:auto; flex:none;}
+  .wordmark{font-family:Georgia,'Times New Roman',serif; font-size:19px; letter-spacing:4px; color:var(--navy); white-space:nowrap; line-height:1.1;}
+  .wordmark small{display:block; font-family:Helvetica,Arial,sans-serif; font-size:9.5px; letter-spacing:5.5px; color:var(--slate); margin-top:5px;}
+  .foot-mark{display:flex; align-items:center; gap:12px;}
+  .foot-mark .mark{height:34px; width:auto; flex:none;}
+  .foot-mark .wordmark{font-size:15px; letter-spacing:3px;}
+  .foot-mark .wordmark small{font-size:8px; letter-spacing:4px; margin-top:4px;}
+  @media(max-width:640px){.wordmark{font-size:15px; letter-spacing:2.5px;} .wordmark small{font-size:8px; letter-spacing:4px;} .nav-mark .mark{height:36px;} .nav-mark{gap:12px;}}
+  @media(max-width:400px){.nav-mark .wordmark{display:none;}}
+  nav ul{list-style:none; display:flex; gap:36px; margin:0; padding:0;}
+  nav a{text-decoration:none; font-size:14px;}
+  nav a:hover, nav a:focus-visible{color:var(--slate);}
+  @media(max-width:640px){nav ul{gap:16px;} nav a{font-size:12.5px;}}
+
+  /* Hero — full navy panel */
+  .hero{background:var(--navy); color:var(--white); padding:130px 0 110px; overflow:hidden; position:relative;}
+  .hero .wrap{position:relative; z-index:1;}
+  .hero .eyebrow{color:#9FB3CC; font-size:14px; margin:0 0 24px;}
+  .hero h1{font-size:clamp(40px,6.4vw,76px); line-height:1.05; margin:0 0 28px; max-width:13ch;}
+  .hero p{font-size:19px; line-height:1.6; color:#C6D3E3; max-width:46ch; margin:0;}
+  .hero-ring{position:absolute; right:-140px; top:50%; transform:translateY(-50%); width:520px; height:520px; border:1px solid rgba(255,255,255,0.12); border-radius:50%;}
+  .hero-ring::before{content:""; position:absolute; inset:60px; border:1px solid rgba(255,255,255,0.1); border-radius:50%;}
+  @media(max-width:900px){.hero-ring{display:none;}}
+
+  section{padding:110px 0;}
+  section.tight{padding:90px 0;}
+  .kicker{display:flex; align-items:center; gap:14px; margin-bottom:56px;}
+  .kicker .dot{width:8px; height:8px; border-radius:50%; background:var(--navy);}
+  .kicker h2{font-size:32px; margin:0;}
+  .kicker span{color:var(--slate); font-size:14px;}
+
+  /* About */
+  .about-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:80px; align-items:start;}
+  @media(max-width:820px){.about-grid{grid-template-columns:1fr; gap:40px;}}
+  .about-grid p{font-size:19px; line-height:1.65; color:#22354D; margin:0;}
+  .stat-grid{display:grid; grid-template-columns:1fr 1fr; gap:32px;}
+  .stat-grid div b{display:block; font-size:38px; font-family:Georgia,serif; margin-bottom:6px;}
+  .stat-grid div span{font-size:13.5px; color:var(--slate);}
+
+  /* Companies */
+  section.alt{background:var(--paper);}
+  .company-grid{display:grid; grid-template-columns:1fr 1fr; gap:28px;}
+  @media(max-width:820px){.company-grid{grid-template-columns:1fr;}}
+  .company{background:var(--white); padding:48px 40px; border-radius:4px; box-shadow:0 1px 0 var(--line);}
+  .company .tag{color:var(--slate); font-size:13px; margin-bottom:14px;}
+  .company h3{font-size:30px; margin:0 0 18px;}
+  .company p{font-size:15.5px; line-height:1.7; color:#33445A; margin:0 0 28px;}
+  .company .meta{display:flex; gap:36px; padding-top:22px; border-top:1px solid var(--line);}
+  .company .meta b{display:block; font-family:Georgia,serif; font-size:19px;}
+  .company .meta span{font-size:12px; color:var(--slate);}
+  .company.soon{border:1px dashed var(--line); box-shadow:none; background:transparent;}
+
+  /* Approach */
+  .approach-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:36px;}
+  @media(max-width:820px){.approach-grid{grid-template-columns:1fr;}}
+  .approach-item h4{font-family:Georgia,serif; font-size:20px; margin:0 0 12px;}
+  .approach-item p{font-size:15px; line-height:1.65; color:var(--slate); margin:0;}
+
+  /* Contact */
+  .contact-panel{background:var(--navy); color:var(--white); border-radius:6px; padding:64px; display:grid; grid-template-columns:1fr 1fr; gap:48px;}
+  @media(max-width:820px){.contact-panel{grid-template-columns:1fr; padding:44px 30px;}}
+  .contact-panel h2{font-size:32px; margin:0 0 18px;}
+  .contact-panel p{color:#C6D3E3; font-size:16px; line-height:1.7; max-width:42ch; margin:0;}
+  address{font-style:normal; font-size:15px; line-height:2.1; color:#E4EAF1;}
+  address a{text-decoration:none; border-bottom:1px solid rgba(255,255,255,0.25);}
+  address a:hover{border-bottom-color:#fff;}
+
+  footer{padding:44px 0;}
+  .foot-row{display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap;}
+  .foot-legal{font-size:12.5px; color:var(--slate);}
+
+  :focus-visible{outline:2px solid var(--navy); outline-offset:2px;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav-row">
+    <div class="nav-mark" role="img" aria-label="The NiRa Collective — a holding company">
+      <svg class="mark" viewBox="0 0 260 260" aria-hidden="true">
+        <circle cx="130" cy="130" r="112" fill="none" stroke="#0F2B4C" stroke-width="8"/>
+        <text x="130" y="183" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="148" fill="#0F2B4C">N</text>
+      </svg>
+      <span class="wordmark">THE NIRA COLLECTIVE<small>A HOLDING COMPANY</small></span>
+    </div>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#companies">Companies</a></li>
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-ring" aria-hidden="true"></div>
+    <div class="wrap">
+      <p class="eyebrow">Umbrella Holding Company — Publishing · Marketing · E-commerce</p>
+      <h1>One collective. Ventures built to endure.</h1>
+      <p>The NiRa Collective is the umbrella company for our publishing, marketing, and e-commerce ventures. Each business runs independently under its own name — we provide the capital, the governance, and the long view.</p>
+    </div>
+  </section>
+
+  <section id="about" class="tight">
+    <div class="wrap about-grid">
+      <div class="kicker" style="margin-bottom:0;"><div class="dot"></div><h2>About</h2></div>
+      <div>
+        <p>Formed in New Jersey in 2026, The NiRa Collective LLC exists for a simple reason: good businesses deserve a steady home. We hold and grow companies across publishing, social media marketing, and e-commerce — giving each one room to operate while carrying the financial and legal weight at the parent level, so founders and teams can focus on the work itself.</p>
+        <div class="stat-grid" style="margin-top:44px;">
+          <div><b>2026</b><span>Founded in New Jersey</span></div>
+          <div><b>3</b><span>Business verticals</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="companies" class="alt">
+    <div class="wrap">
+      <div class="kicker"><div class="dot"></div><h2>Our companies</h2><span>One parent, independent businesses</span></div>
+      <div class="company-grid">
+        <div class="company">
+          <p class="tag">Publishing</p>
+          <h3>P K Prakashan</h3>
+          <p>A bilingual English–Hindi publishing house bringing new voices and enduring works to readers in both languages. It operates with full editorial independence under the Collective's ownership.</p>
+          <div class="meta">
+            <div><b>EN – HI</b><span>Bilingual publishing</span></div>
+            <div><b>2026</b><span>Joined the Collective</span></div>
+          </div>
+        </div>
+        <div class="company soon">
+          <p class="tag">In development</p>
+          <h3>The next venture</h3>
+          <p>The Collective was built to hold more than one company. New ventures in marketing and e-commerce are taking shape under the same roof — each with its own name, team, and ambition.</p>
+          <div class="meta">
+            <div><b>—</b><span>Announcements to come</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="approach" class="tight">
+    <div class="wrap">
+      <div class="kicker"><div class="dot"></div><h2>How we hold companies</h2></div>
+      <div class="approach-grid">
+        <div class="approach-item"><h4>Independent by design</h4><p>Each company sets its own strategy and keeps final say over its work, its brand, and its customers.</p></div>
+        <div class="approach-item"><h4>Shared backbone</h4><p>Finance, legal, and governance sit at the parent level, so operating teams stay lean and focused.</p></div>
+        <div class="approach-item"><h4>Patient capital</h4><p>We fund for multi-year growth, not the next quarter — no forced exits, no short-term extraction.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="tight">
+    <div class="wrap">
+      <div class="contact-panel">
+        <div>
+          <h2>Talk to us</h2>
+          <p>Founders considering a home for their company, partners, and press — reach the holding company directly.</p>
+        </div>
+        <address>
+          The NiRa Collective LLC<br>
+          New Jersey, USA<br><br>
+          <a href="mailto:info@theniracollective.com">info@theniracollective.com</a>
+        </address>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <div class="foot-mark" role="img" aria-label="The NiRa Collective — a holding company">
+      <svg class="mark" viewBox="0 0 260 260" aria-hidden="true">
+        <circle cx="130" cy="130" r="112" fill="none" stroke="#0F2B4C" stroke-width="8"/>
+        <text x="130" y="183" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="148" fill="#0F2B4C">N</text>
+      </svg>
+      <span class="wordmark">THE NIRA COLLECTIVE<small>A HOLDING COMPANY</small></span>
+    </div>
+    <p class="foot-legal">© 2026 The NiRa Collective LLC. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
