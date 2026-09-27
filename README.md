@@ -25,3 +25,5 @@ Open `index.html` in a browser, or serve it:
 ```sh
 python3 -m http.server -d . 8000
 ```
+
+![Deploy to Vercel](https://github.com/chunmunjha1-bot/nira-collective-site/actions/workflows/deploy.yml/badge.svg)
